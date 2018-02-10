@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from apps.users.models import Users
+from apps.users.models import Users, RelationMedicPatient
 from django.utils.translation import ugettext_lazy as _
 
 class RegisterForm(UserCreationForm):
@@ -35,3 +35,23 @@ class RegisterForm(UserCreationForm):
 			'city': 'Ciudad',
 			'born_date' :'Fecha de nacimiento',
 		}
+
+
+
+class EditUserForm(forms.ModelForm):
+
+    class Meta:
+        model = Users
+        fields = ['group', 'first_name', 'last_name', 'email','document', 'phone', 'city', 'born_date']
+
+
+class RelationMedicPatientForm(forms.ModelForm):
+
+    class Meta:
+        model = RelationMedicPatient
+        fields = ['medic', 'patient']
+
+    def __init__(self, *args, **kwargs):
+        super(newAppointmentForm, self).__init__(*args, **kwargs)
+        self.fields['patient'].queryset = Users.objects.all() 
+        #self.fields['medic'].queryset = Users.objects.filter(grupo = 1)       		

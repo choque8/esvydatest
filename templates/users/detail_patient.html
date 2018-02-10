@@ -1,0 +1,97 @@
+
+<div class="modal-dialog modal-lg">
+        <div class="modal-content">
+                <div class="modal-header">
+                        <h3>Detalle Actividad</h3>
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        
+                </div>
+                <div class="modal-body">
+                <div class="row">
+                        <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3" align="left">
+                        </div>
+                        <div class="col-lg-9 col-xs-9 col-sm-9 col-md-9" align="left">
+                                <b>Usuario:</b>
+                                {% if object.username %}
+                                    {{ object.username }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %} 
+
+                                <b>Nombre de paciente:</b>
+                                {% if object.first_name %}
+                                    {{ object.first_name }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %}  
+
+                                <b>Apellido:</b>
+                                {% if object.last_name %}
+                                    {{ object.last_name }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %} 
+
+                                <b>Correo:</b>
+                                {% if object.email %}
+                                    {{ object.email }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %} 
+
+                                <b>Fecha de nacimiento:</b>
+                                {% if object.born_date %}
+                                    {{ object.born_date }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %} 
+
+                                <b>Ciudad:</b>
+                                {% if object.city %}
+                                    {{ object.city }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %} 
+
+                                <b>Teléfono:</b>
+                                {% if object.phone %}
+                                    {{ object.phone }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %} 
+
+                                <b>Número de documento</b>
+                                {% if object.document %}
+                                    {{ object.document }}</br>  
+                                  {% else %}
+                                    No definido</br>                  
+                                {% endif %} 
+                
+                        </div>   
+                  </div>
+                </div>
+
+               
+
+                
+     
+
+
+
+                <div class="modal-footer">
+                		<div class="col-lg-4 text-left">
+                                <button type="button" class="btn btn-primary" onclick="return abrir_modal('{% url 'edit_patient' object.id %}')" >
+                                        Editar paciente
+                                </button>
+                        </div>
+                        <div class="col-lg-4 text-right">
+                                
+                        </div>
+                        <div class="col-lg-4 text-right">
+                                <button type="button" class="btn btn-primary" onclick="return cerrar_modal()">
+                                        Aceptar
+                                </button>
+                        </div>
+                </div>
+        </div>
+</div>

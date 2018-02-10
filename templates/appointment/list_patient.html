@@ -1,0 +1,55 @@
+{% extends "base/base.html" %}
+{% block content %}
+<h3>Pacientes</h3>
+
+
+
+
+<!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTables" width="100%" cellspacing="0">
+              <thead>
+              <tr>
+                <th >Nombre del paciente</th>
+                <th >Estado</th>
+                <th >Estado</th>
+                    
+                </tr>
+          
+             </thead> 
+           
+
+              <tbody>
+              {% if object_list %}
+              {% for actividad in object_list %}
+              <tr onclick="return abrir_modal('{% url 'detail_patient'  actividad.patient.id  %}')" >
+                <td>casa</td>
+                <td>{{ actividad.medic }}</td>
+                <td>{{ actividad.patient }}</td>
+               
+  
+              </tr>
+              {% endfor %}
+              
+              {% else %}
+              <h1>No hay registros de actividades</h1>
+              {% endif %}
+            </tbody>
+              
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup" class="modal fade" role="dialog">
+
+    </div>
+    <!-- /.container-fluid-->
+
+
+
+{% endblock %}
