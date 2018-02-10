@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Test esvyda</title>
+
+  <link href="{% static "plantilla_admin/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{% static "plantilla_admin/vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="{% static "plantilla_admin/dist/css/sb-admin-2.css" %}"  rel="stylesheet"> 
+
+
+
+
+</head>
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-3">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Inicio de sesión </h3>
+                    </div>
+                    <div class="panel-body">
+                        <form method="post">
+                          {% csrf_token %}
+                           <div class="row">
+                              <div class="col-md-12 col-md-offset-0">
+                                <div class="form-group">
+                                    <label for="username">Nombre de usuario:</label>
+                                    <input class="form-control" type="text" name="username">
+                                 </div>
+                                </div>
+                            </div>    
+                            <div class="row">
+                              <div class="col-md-12 col-md-offset-0">
+                                <div class="form-group">
+                                    <label for="username">Contraseña:</label>
+                                    <input class="form-control" type="password" name="password">
+                                 </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12 col-md-offset-0">
+                                <div class="form-group">
+                                    <input class="btn btn-primary btn-block" type="submit" value="Ingresar">
+                                 </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static "plantilla_admin/vendor/jquery/jquery.min.js" %}" ></script>
+  <script src="{% static "plantilla_admin/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+    <!-- Core plugin JavaScript-->
+  <script src="{% static "plantilla_admin/vendor/metisMenu/metisMenu.min.js" %}"></script>
+  <script src="{% static "plantilla_admin/dist/js/sb-admin-2.js" %}"></script>
+
+
+
+    
+</body>
+
+</html>
+
