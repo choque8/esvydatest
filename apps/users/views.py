@@ -41,7 +41,7 @@ class RegisterUser(SuccessMessageMixin,CreateView):
 
 class ListPatient(ListView):
     model = RelationMedicPatient
-    template_name = 'appointment/list_patient.html'
+    template_name = 'users/list_patient.html'
     context_object_name = 'ListPatient'
 
 class newRelationMedicPatient(CreateView):
@@ -59,4 +59,4 @@ class EditPatient(UpdateView):
     model = Users
     template_name = 'users/edit_patient.html'
     form_class = EditUserForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('list_patient')

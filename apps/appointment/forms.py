@@ -5,17 +5,15 @@ from apps.users.models import Users,Appointment, RelationMedicPatient
 
 
 
-
-class newAppointmentForm(forms.ModelForm):
+class NewAppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
         fields = ['name', 'descrip', 'state', 'date','time', 'medic', 'patient']
 
     def __init__(self, *args, **kwargs):
-        super(newAppointmentForm, self).__init__(*args, **kwargs)
-        self.fields['patient'].queryset = Users.objects.all() 
-        #self.fields['medic'].queryset = Users.objects.filter(grupo = 1) 
+        super(NewAppointmentForm, self).__init__(*args, **kwargs)
+        self.fields['patient'].queryset = Users.objects.all() .filter(group = 2)  
+        self.fields['medic'].queryset = Users.objects.filter(group = 1) 
      
           
-

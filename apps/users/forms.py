@@ -53,5 +53,5 @@ class RelationMedicPatientForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(newAppointmentForm, self).__init__(*args, **kwargs)
-        self.fields['patient'].queryset = Users.objects.all() 
-        #self.fields['medic'].queryset = Users.objects.filter(grupo = 1)       		
+        self.fields['patient'].queryset = Users.objects.filter(group = 2)  
+        self.fields['medic'].queryset = Users.objects.filter(group = 1)       		
