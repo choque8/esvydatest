@@ -42,9 +42,12 @@ class Appointment(models.Model):
     patient = models.ForeignKey('Users', blank=True, null=True,related_name='patient')
     first = models.NullBooleanField()
 
-class AppointmentHistory:
-    first = models.ForeignKey('Appointment', blank=True, null=True)
-    control = models.ForeignKey('Appointment', blank=True, null=True)
+    def __unicode__(self):
+        return self.name
+
+class AppointmentHistory(models.Model):
+    first = models.ForeignKey('Appointment', blank=True, null=True, related_name='first_appointmet')
+    control = models.ForeignKey('Appointment', blank=True, null=True, related_name='control_appointment')
 
 
 class RelationMedicPatient(models.Model):

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, ListView,TemplateView, UpdateView
 from django.views.generic.detail import DetailView
 
-from apps.users.models import Appointment,RelationMedicPatient, Users,AppointmentState
+from apps.users.models import Appointment,RelationMedicPatient, Users,AppointmentState,AppointmentHistory
 from apps.users.forms import RelationMedicPatientForm
 from apps.appointment.forms import NewAppointmentForm
 
@@ -20,6 +20,14 @@ class NewAppointment(CreateView):
     form_class = NewAppointmentForm
     success_url = reverse_lazy('home')
     additional_context = {}
+
+
+
+class NewControlAppointment(DetailView):
+    model = Appointment
+    template_name = 'appointment/new_control_appointment.html'
+
+
 
 
 class EditAppointment(UpdateView):
@@ -45,7 +53,23 @@ def save_appointment(request):
         pati = Users.objects.get(id=patient) 
         query = Appointment(state = state,name=name, descrip=descrip ,date = date,time=time,medic=medic,patient=pati, first = True)
         query.save()
+
+        #return last id inserted
+    return JsonResponse(query.id, safe=False)
+
+
+def relation_appoint(request):
+    if request.method == 'GET':
+        old = request.GET['old']
+        new = request.GET['new']
+        print "new ", new, "  old ", old
+        old_appoint = Appointment.objects.get(id = old)
+        new_appoint = Appointment.objects.get(id = new)
+        query = AppointmentHistory(first = old_appoint,control=new_appoint)
+        query.save()
+
     return JsonResponse("ok", safe=False)
+
 
 
 class ListAppointmentPatient(ListView):

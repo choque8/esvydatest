@@ -15,5 +15,3 @@ class NewAppointmentForm(forms.ModelForm):
         super(NewAppointmentForm, self).__init__(*args, **kwargs)
         self.fields['patient'].queryset = Users.objects.all() .filter(group = 2)  
         self.fields['medic'].queryset = Users.objects.filter(group = 1) 
-     
-          

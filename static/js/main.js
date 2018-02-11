@@ -61,6 +61,7 @@ function sendAjax(url, params, myCallback, args) {
 
 function abrir_modal(url)
 {
+    console.log("hola, "+url)
     $('#popup').load(url, function()
     {
             $(this).modal('show');

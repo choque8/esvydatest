@@ -12,17 +12,6 @@
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
-    
-    <!-- Custom scripts for all pages-->
-
-    <!--
-    <script src="{% static "js/jquery.dataTables.min" %}"></script>
-    <script src="{% static "js/underscore-min.js" %}"></script>
-
-
-
-
--->
     <link href="{% static "plantilla_admin/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
     <!-- Custom fonts for this template-->
     <link href="{% static "plantilla_admin/vendor/metisMenu/metisMenu.min.css" %}" rel="stylesheet" type="text/css">
@@ -35,20 +24,6 @@
 
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
  
-
-
-
-
-
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 
@@ -58,12 +33,6 @@
     {% block content %}
     {% endblock %} 
 
-   
-
-
-
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
 
     {% block footer %}
        {% include "base/footer.html"%}      
@@ -92,12 +61,6 @@
         </div>
       </div>
     </div>
-
- 
-
-
-
-
    </div>
 
 </body>
@@ -105,8 +68,6 @@
     <script src="{% static "js/jquery.js" %}" ></script>
     <script src="{% static "js/jquery.min.js" %}" ></script>
 
-
-  
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="{% static "plantilla_admin/vendor/bootstrap/js/bootstrap.min.js" %}" ></script>
@@ -119,7 +80,7 @@
     <script src="{% static "js/main.js" %}"></script>
 
     {% block js %}
-     {% endblock %}
+    {% endblock %}
 
 </html>
 
