@@ -83,8 +83,11 @@ function save(){
             "patient": patient,
         },
         success: function(data){
-             alert("Se ha guardado la cita");   
-             $(location).attr('href', '{% url 'list_appointment_patient'  %}' )
+            if(data == "changedate"){
+                alert("no hay cita disponible para el horario"); 
+            }else{
+                relationControlAppointment(data)  
+            }
         },
         failure: function(data){
             alert("Ha ocurrido un error guardando");
@@ -96,6 +99,27 @@ function save(){
          alert("Debe completar todos los campos ");
     }
      
+}
+
+function relationControlAppointment(data){
+
+  $.ajax({
+        type: "GET",
+        url: "/appointment/relation_appoint/",
+        data: {
+            "old": data,
+            "new": 1,
+         
+        },
+        success: function(data){
+            alert("Se ha guardado la cita"); 
+             $(location).attr('href', '{% url 'list_appointment_patient'  %}' )
+           
+        },
+        failure: function(data){
+           
+        },
+    }); 
 }
     
    

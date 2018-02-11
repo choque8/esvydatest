@@ -42,10 +42,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'apps.users',
     'apps.appointment',
-    'djgeojson',
-    'rest_framework',
 )
 
 
@@ -79,6 +78,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'esvyda.wsgi.application'
 

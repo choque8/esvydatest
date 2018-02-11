@@ -23,26 +23,18 @@
               </thead> 
               
               <tbody>
-              {% if ListAppointmentPatient %}
-              {% for appointment in ListAppointmentPatient %}
+              {% if ListAppointmentMedic %}
+              {% for appointment in ListAppointmentMedic %}
               <tr  >
-                <td>{{ appointment.name }} -> {{ appointment.patient.last_name }} </td>
-                <td>{{ appointment.descrip }}</td>
-                <td>{{ appointment.state }}</td>
-                <td>{{ appointment.date }}</td>
-                <td>{{ appointment.time }}</td>
+                <td>{{ appointment.first.name }} {{ appointment.patient.last_name }} </td>
+                <td>{{ appointment.first.descrip }}</td>
+                <td>{{ appointment.first.state }}</td>
+                <td>{{ appointment.first.date }}</td>
+                <td>{{ appointment.first.time }}</td>
                 <td class="text-center">
-                        <a onclick="confirmation('{{ appointment.name }} ',{{ appointment.id }}  );" class="btn">
+                        <a onclick="confirmation('{{ appointment.first.name }} ',{{ appointment.first.id }}  );" class="btn">
                             <span class="fa fa-remove fa-2x"></span>
                         </a>
-
-                        {% if appointment.state.id == 3 %}
-
-                        <a onclick="new_appointment({{ appointment.id }});" class="btn">
-                            <span class="fa fa-check fa-2x"></span>
-                        </a>
-
-                        {% endif %}                        
                  </td>
               </tr>
               {% endfor %}              
@@ -73,17 +65,8 @@ function confirmation(nams, id)
   } 
 }
 
-function new_appointment( id)
-{
-  if(confirm('¿Crear cita de control?'))
-  {
-    abrir_modal('/appointment/new_control/'+id)
-  }
-  else
-  {
-    return false;
-  } 
-}
 </script>
 
+
 {% endblock %}
+

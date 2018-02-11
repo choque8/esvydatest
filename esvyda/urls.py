@@ -10,6 +10,9 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^users/', include('apps.users.urls')),
     url(r'^appointment/', include('apps.appointment.urls')),
+    
+    url(r'^api-auth/', include('rest_framework.urls')),
+    
 
     url(r'^',login,  {'template_name':'login.html'}, name='logins'),
 ]

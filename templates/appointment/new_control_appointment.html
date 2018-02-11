@@ -90,8 +90,11 @@ function save(){
             "patient": patient,
         },
         success: function(data){
-             console.log( "ultimo id insertado " + data)  
-             relationControlAppointment(data)
+             if(data == "changedate"){
+                alert("no hay cita disponible para el horario"); 
+            }else{
+                relationControlAppointment(data)  
+            }
              
         },
         failure: function(data){

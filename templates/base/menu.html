@@ -106,7 +106,7 @@
 
                     {% if user.group.name == "Medic" %}
                     <li>
-                        <a href="#"><i class="fa fa-table fa-fw"></i> Ver lista de citas</a>
+                        <a href="{% url 'list_appointment_medic'  %}"><i class="fa fa-table fa-fw"></i> Ver lista de citas</a>
                     </li>
                     {% endif %}
 
