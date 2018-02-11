@@ -61,3 +61,9 @@ class ListAppointmentPatient(ListView):
         return queryset
 
 
+def cancel_appointment(request):
+    if request.method == 'GET':
+        appointment_id = request.GET['appointment_id']
+        cancel = AppointmentState.objects.get(id = 2)
+        Appointment.objects.filter(id=appointment_id).update(state=2)
+    return JsonResponse("ok", safe=False)

@@ -25,6 +25,7 @@
                 <th >Estado</th>
                 <th >Fecha</th>
                 <th >Hora</th>
+                <th >Cancelar cita</th>
                     
                 </tr>
           
@@ -33,13 +34,19 @@
 
               <tbody>
               {% if ListAppointmentPatient %}
-              {% for actividad in ListAppointmentPatient %}
-              <tr onclick="return abrir_modal('{% url 'detail_patient'  actividad.patient.id  %}')" >
-                <td>{{ actividad.name }} {{ actividad.patient.last_name }} </td>
-                <td>{{ actividad.descrip }}</td>
-                <td>{{ actividad.state }}</td>
-                <td>{{ actividad.date }}</td>
-                <td>{{ actividad.time }}</td>
+              {% for appointment in ListAppointmentPatient %}
+              <tr  >
+                <td>{{ appointment.name }} {{ appointment.patient.last_name }} </td>
+                <td>{{ appointment.descrip }}</td>
+                <td>{{ appointment.state }}</td>
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.time }}</td>
+                <td class="text-center">
+                        <a onclick="confirmation('{{ appointment.name }} ',{{ appointment.id }}  );" class="btn">
+                            <span class="fa fa-remove fa-2x"></span>
+                        </a>
+                        
+                 </td>
                
   
               </tr>
@@ -62,6 +69,22 @@
     </div>
     <!-- /.container-fluid-->
 </div>
+
+
+<script>
+function confirmation(nams, id)
+{
+  if(confirm('¿Estás seguro de cancelar la cita "'+nams +'"?'))
+  {
+    cancel_appointment('/appointment/cancel/?appointment_id=' + id );
+  }
+  else
+  {
+    return false;
+  } 
+}
+</script>
+
 
 
 

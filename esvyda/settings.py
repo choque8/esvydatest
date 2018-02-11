@@ -44,6 +44,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.users',
     'apps.appointment',
+    'djgeojson',
+    'rest_framework',
 )
 
 

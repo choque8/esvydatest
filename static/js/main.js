@@ -69,11 +69,11 @@ function abrir_modal(url)
 }
 
 
-function delete_actividad(url) {
+function cancel_appointment(url) {
     $.getJSON(url, function (data) {
         console.log(data)
         location.reload();
-        alert("Se ha eliminado la actividad");
+        alert("Se ha cancelado la cita");
     });   
 }
 
